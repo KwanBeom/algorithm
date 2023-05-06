@@ -1,10 +1,9 @@
 function solution(numbers, direction) {
     if(direction === "left"){
-        let a= numbers.shift()
-        numbers.push(a)
+        numbers.push(numbers.shift())
     }else if(direction === "right"){
-        let b = numbers.pop()
-        numbers.unshift(b)
+        
+        numbers.unshift(numbers.pop())
     }
     return numbers
 }
