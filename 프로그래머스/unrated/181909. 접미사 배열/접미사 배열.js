@@ -1,11 +1,7 @@
 function solution(my_string) {
     var answer = [];
-    let cur = ''
-    let realcur = ''
     for(let i=my_string.length-1; i>=0; i--){
-        cur += my_string[i]
-        realcur = cur.split('').reverse().join('')
-        answer.push(realcur)
+        answer.push(my_string.slice(i))
     }
-    return answer.sort((a,b) => a.localeCompare(b));
+    return answer.sort()
 }
