@@ -1,3 +1,3 @@
 function solution(myString) {
-    return myString.replace(/[a-k]/g, "l")
+    return [...myString].map(item => item < 'l' ? 'l' : item).join('')
 }
