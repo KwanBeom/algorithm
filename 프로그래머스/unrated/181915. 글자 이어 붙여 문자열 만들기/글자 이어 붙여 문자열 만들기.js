@@ -1,7 +1,7 @@
 function solution(my_string, index_list) {
     let answer = ''
-    index_list.forEach(item => {
-        answer += my_string.substr(item, 1)
-    })
+    for(let i=0; i<index_list.length; i++){
+          answer += my_string[index_list[i]]  
+    }
     return answer
 }
