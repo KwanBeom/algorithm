@@ -1,7 +1,6 @@
 function solution(n) {
     const answer = [];
-    const arr = new Array(n);
-    arr.fill(0,0,n)
+    const arr = new Array(n).fill(0);
     
     for(let i=0; i<n; i++){
         const newArr = arr.slice()
