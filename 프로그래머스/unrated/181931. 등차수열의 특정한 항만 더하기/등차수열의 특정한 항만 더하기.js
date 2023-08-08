@@ -3,12 +3,8 @@ function solution(a, d, included) {
     const arr = []
     let num = Number(a)
     for(let i=0; i<included.length; i++){
-        arr.push(num);
-        num = num + d;
+        if(included[i]) answer += a + (d*i)
     }
-    arr.map((item, idx) => {
-        if(included[idx]) answer += item
-    })
     
     return answer;
 }
