@@ -1,7 +1,5 @@
 function solution(arr, queries) {
-    queries.map(item => {
-        const start = item[0];
-        const end = item[1];
+    queries.forEach(([start, end]) => {
         [arr[start], arr[end]] = [arr[end], arr[start]]
     })
     
