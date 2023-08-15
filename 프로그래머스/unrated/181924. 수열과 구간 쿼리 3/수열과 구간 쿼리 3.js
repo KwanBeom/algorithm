@@ -1,5 +1,5 @@
 function solution(arr, queries) {
-    queries.forEach(([start, end]) => {
+    queries.map(([start, end]) => {
         [arr[start], arr[end]] = [arr[end], arr[start]]
     })
     
