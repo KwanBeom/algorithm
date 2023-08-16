@@ -1,13 +1,13 @@
-function solution(input) {
-  function getAngle(coord1,coord2) {
-    return ((coord2[1] - coord1[1]) / (coord2[0] - coord1[0])).toFixed(5)
-  }
-  const arrs = {};
-  for(let i=0;i<4;i++) {
-    for(let j=i+1;j<4;j++) {
-      if(Object.keys(arrs).includes(getAngle(input[i],input[j])) && !arrs[getAngle(input[i],input[j])].includes(JSON.stringify(input[i])) && !arrs[getAngle(input[i],input[j])].includes(JSON.stringify(input[j]))) return 1
-      else arrs[getAngle(input[i],input[j])] = [JSON.stringify(input[i]),JSON.stringify(input[j])]
-    }
-  }
-  return 0
+function solution(dots) {
+    if (calculateSlope(dots[0], dots[1]) === calculateSlope(dots[2], dots[3]))
+        return 1;
+    if (calculateSlope(dots[0], dots[2]) === calculateSlope(dots[1], dots[3]))
+        return 1;
+    if (calculateSlope(dots[0], dots[3]) === calculateSlope(dots[1], dots[2]))
+        return 1;
+    return 0;
+}
+
+function calculateSlope(arr1, arr2) {
+    return (arr2[1] - arr1[1]) / (arr2[0] - arr1[0]);
 }
