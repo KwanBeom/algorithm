@@ -1,19 +1,15 @@
 function solution(quiz) {
     return quiz.map(v => {
-        const arr = v.split(' '),
-              num1 = Number(arr[0]),
-              num2 = Number(arr[2]),
-              operator = arr[1],
-              answer = Number(arr[arr.length-1])
-        let result
+        const [num1, operator, num2, n, answer] = v.split(' ')
+        let sum
         switch(operator){
             case '+':
-                result = num1 + num2 === answer;
+                sum = 1*num1 + 1*num2 
                 break;
             case '-':
-                result = num1 - num2 === answer;
+                sum = 1*num1 - 1*num2
                 break;
         }
-        return result ? "O" : "X"
+        return sum === 1*answer ? "O" : "X"
     })
 }
