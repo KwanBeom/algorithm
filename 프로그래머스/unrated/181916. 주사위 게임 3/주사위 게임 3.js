@@ -9,25 +9,18 @@ function solution(a, b, c, d) {
     }
     
     const numCount = arr.filter(num => set.has(num)).length + set.size;
-    const sameNumbers = [...set]
-    console.log(numCount)
+    const sameNumbers = [...set];
+    
     switch(numCount){
         case 0:
             return Math.min(a,b,c,d)
         case 3:
-            const doubleTimesNum = sameNumbers[0]
-            const leftNum = arr.filter(num => num !== doubleTimesNum)
+            const leftNum = arr.filter(num => num !== sameNumbers[0])
             return leftNum[0] * leftNum[1]
         case 4:
-            let iter = set.values();
-            let p = sameNumbers[0];
-            let q = arr.filter(num => num !== p).join('')
-            return (10 * p + Number(q)) ** 2
-            
+            return (10 * sameNumbers[0] + Number(arr.filter(num => num !== sameNumbers[0]).join(''))) ** 2
         case 5:
-            const n = (a+b+c+d)/4
-            return 1111 * n;
-            
+            return 1111 * (a+b+c+d)/4;
         case 6:
             const t = set.values();
             const num1 = t.next().value;

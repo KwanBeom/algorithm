@@ -1,10 +1,10 @@
 # [unrated] 주사위 게임 3 - 181916 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181916) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181916#) 
 
 ### 성능 요약
 
-메모리: 33.7 MB, 시간: 2.35 ms
+메모리: 33.6 MB, 시간: 0.11 ms
 
 ### 구분
 
