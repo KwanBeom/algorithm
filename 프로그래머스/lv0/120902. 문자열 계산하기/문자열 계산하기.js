@@ -7,12 +7,10 @@ function solution(my_string) {
     })
     let acc = nums[0];
     for(let i=0; i<operators.length; i++){    
-        console.log(acc)
-        if(operators[i] === '+'){
-            acc += nums[i+1]
-        }
-        else if(operators[i] === '-'){
-            acc -= nums[i+1]
+        switch(operators[i]){
+            case '+': acc += nums[i+1];
+                break;
+            case '-': acc -= nums[i+1];
         }
     }
     return acc
