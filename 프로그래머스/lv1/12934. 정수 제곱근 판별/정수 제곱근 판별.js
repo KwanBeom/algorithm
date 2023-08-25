@@ -1,5 +1,4 @@
 function solution(n) {
-    const num = n**0.5;
-    if(Math.round(num) === num) return (num+1) ** 2
+    if(Math.sqrt(n) === Math.round(Math.sqrt(n))) return (Math.sqrt(n)+1) ** 2
     else return -1
 }
