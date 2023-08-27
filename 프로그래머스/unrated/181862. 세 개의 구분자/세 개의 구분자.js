@@ -1,3 +1,4 @@
 function solution(myStr) {
-    return myStr.match(/[^a-c]+/g)||["EMPTY"]
+    const arr = myStr.split(/[a-c]/g).filter(v => !!v)
+    return arr.length ? arr : ["EMPTY"]
 }
