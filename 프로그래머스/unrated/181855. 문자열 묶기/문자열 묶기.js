@@ -1,8 +1,13 @@
 function solution(strArr) {
-    let length = 0;
-    for(let i=0; i<Math.max(...strArr.map(v => v.length)); i++){
-        const groupSize = strArr.filter(v=>v.length === i+1)
-        if(length < groupSize.length) length = groupSize.length
+    const maxLeng = strArr.map(v => v.length).sort((a,b)=>b-a)[0]
+    let result = 0;
+    console.log(maxLeng)
+    for(let i=1; i <= maxLeng; i++){
+        const filterArr = strArr.filter(v => v.length === i);
+        if(filterArr.length > result) result = filterArr.length
     }
-    return length
+    
+    return result
 }
+
+
