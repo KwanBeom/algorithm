@@ -1,9 +1,5 @@
 function solution(order) {
-    const reg = /hot|ice/g
-    const price = {
-        americano: 4500,
-        cafelatte: 5000,
-        anything: 4500,
-    }
-    return order.map(item => item.replace(reg, '')).reduce((acc,cur) => acc + price[cur], 0)
+    return order.reduce((acc, cur) => acc + (cur.includes('latte') ? 5000 : 4500), 0)
 }
+
+// 0.83 0.17
