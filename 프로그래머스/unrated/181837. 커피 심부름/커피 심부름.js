@@ -1,5 +1,4 @@
 function solution(order) {
-    var answer = 0;
     const reg = /hot|ice/g
     const price = {
         americano: 4500,
