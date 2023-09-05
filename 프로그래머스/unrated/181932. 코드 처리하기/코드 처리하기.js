@@ -5,9 +5,9 @@ function solution(code) {
         if(code[i] === '1'){
             mode = mode === 0 ? 1 : 0;
         } else {
-            if(!mode && !(i % 2)) ret += code[i]
-            if(mode && i % 2) ret += code[i]
+            if(i % 2 === mode) ret += code[i]
         }
     }
     return ret === "" ? "EMPTY" : ret;
 }
+
