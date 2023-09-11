@@ -3,16 +3,16 @@ function solution(n) {
     let num = 1;
     let time = 1;
     while(num <= n*n){
-        for(let i=time-1; i<n+1-time; i++){
+        for(let i=time-1; i<=n-time; i++){
             answer[time-1][i] = num++;  
         } 
-        for(let i=time; i<n+1-time; i++){
+        for(let i=time; i<=n-time; i++){
             answer[i][n-time] = num++; 
         } 
         for(let i=n-time-1; i>=time-1; i--) {
             answer[n-time][i] = num++;
         }
-        for(let i=n-time-1; i>time-1; i--) {
+        for(let i=n-time-1; i>=time; i--) {
             answer[i][time-1] = num++;
         }
         
