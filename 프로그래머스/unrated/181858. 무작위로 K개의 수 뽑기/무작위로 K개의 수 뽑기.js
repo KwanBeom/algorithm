@@ -1,7 +1,4 @@
 function solution(arr, k) {
-    const array = []
-    arr.map(num => !array.includes(num) ? array.push(num) : '')
-    for(let i=array.length; i<=k; i++) array.push(-1)
-    array.length = k
-    return array
+    const set = new Set(arr)
+    return set.size > k ? [...set].slice(0, k) : [...set, ...Array(k - set.size).fill(-1)] 
 }
