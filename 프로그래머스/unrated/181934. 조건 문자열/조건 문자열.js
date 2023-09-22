@@ -1,16 +1,7 @@
 function solution(ineq, eq, n, m) {
-    if(eq === "=") {
-        if(ineq === ">"){
-            return (n >= m) * 1
-        }else{
-            return (n <= m) * 1           
-        }
-    } else if(eq === "!") {
-        if(ineq === ">"){
-            return (n > m) * 1
-        } else {
-            return (n < m) * 1
-        }
-    }
+    if(eq === '=' && n === m) return 1
+    if(ineq === "<" && n < m) return 1
+    if(ineq === ">" && n > m) return 1
+    return 0
 }
 
