@@ -1,4 +1,3 @@
 function solution(arr) {
-    arr = arr.filter(v => v !== Math.min(...arr));
-    return arr.length ? arr : [-1]
+    return arr.length === 1 ? [-1] : arr.filter(v => v !== Math.min(...arr)); 
 }
