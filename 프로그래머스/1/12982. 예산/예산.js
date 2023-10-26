@@ -1,13 +1,22 @@
 function solution(d, budget) {
-    let answer = 0;
-    d.sort((a,b)=>a-b);
-    for(let i=0; i<d.length; i++){
-        if(budget - d[i] < 0) {
-            break;
-        } else {
-            budget-=d[i];
-            answer++;
-        }
+    let result;
+    try {
+        d.sort((a,b) => a-b).forEach((v, i) => {
+            budget -= v;
+            if (budget < 0) {
+                result = i;
+                throw new Error("stop loop");
+            } else if (budget === 0) {
+                result = i + 1;
+                throw new Error("stop loop");
+            } else if (i + 1 === d.length) {
+                result = i + 1;
+            }
+        });
+    } catch (e) {
+        
     }
-    return answer
+    
+    
+    return result;
 }
