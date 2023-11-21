@@ -1,11 +1,12 @@
 function solution(N, stages) {
-    const count = [];
-
-    for (let i = 1; i <= N; i++) {
-        const failUserCount = stages.filter(v => v === i).length;
-        const overOrEqualUserCount = stages.filter(v => v >= i).length; 
-        count.push([i, failUserCount / overOrEqualUserCount])
+    const arr = [];
+    
+    for(let stage = 1; stage <= N; stage++) {
+        const tryUser = stages.filter((v) => v >= stage).length;
+        const leftUser = stages.filter((v) => v === stage).length;
+        
+        arr.push([stage, leftUser / tryUser]);
     }
     
-    return count.sort((a, b) => b[1] - a[1]).map((v, i) => v[0]);
+    return arr.sort((a, b) => b[1] - a[1]).map((v) => v[0]);
 }
