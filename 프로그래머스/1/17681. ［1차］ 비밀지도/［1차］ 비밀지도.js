@@ -1,3 +1,6 @@
 function solution(n, arr1, arr2) {
-    return arr1.map((v,i) => (v|arr2[i]).toString(2).padStart(n, '0').replace(/0|1/g, a=>1*a?'#':' '))
+    return arr1.map((num, idx) => {        
+        return [...(num | arr2[idx]).toString(2).padStart(n, '0')]
+            .map(v => v === '1' ? '#' : ' ').join('');
+    });
 }
