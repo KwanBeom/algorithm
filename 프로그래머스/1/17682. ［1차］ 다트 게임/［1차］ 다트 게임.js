@@ -1,5 +1,5 @@
 function solution(dartResult) {
-    const receivedScore = [];
+    const scores = [];
     
     const bonuses = {
         S: 1, D: 2, T: 3,
@@ -9,19 +9,21 @@ function solution(dartResult) {
         const bonus = bonuses[v];
         
         if(bonus) {
-            const score = Math.pow(dartResult[i-2] === '1' ? 10 : dartResult[i - 1], bonus);
-            let receive = score;
+            const receiveScore = Math.pow(
+                dartResult[i-2] === '1' ? 10 : dartResult[i - 1], bonus
+            );
+            let finalScore = receiveScore;
             
-            if(dartResult[i+1] === '#') receive *= -1;
+            if(dartResult[i+1] === '#') finalScore *= -1;
 
             if(dartResult[i+1] === '*') {
-                receivedScore[receivedScore.length - 1] *= 2;
-                receive *= 2;
+                scores[scores.length - 1] *= 2;
+                finalScore *= 2;
             }
             
-            receivedScore.push(receive);
+            scores.push(finalScore);
         }
     })
     
-    return receivedScore.reduce((acc, cur) => acc + cur);
+    return scores.reduce((acc, cur) => acc + cur);
 }
