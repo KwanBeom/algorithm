@@ -1,0 +1,1 @@
+const solution = (my_string) => Array.from(my_string).reverse().join('')
