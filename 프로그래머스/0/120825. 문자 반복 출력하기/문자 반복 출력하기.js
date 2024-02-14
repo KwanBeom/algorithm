@@ -1,0 +1,1 @@
+const solution = (my_string, n) => Array.from(my_string, (str) => str.repeat(n)).join('');
