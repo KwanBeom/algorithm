@@ -1,23 +1,16 @@
 function solution(progresses, speeds) {
-    const whenFinish = (progress, speed) => {
-        let day = 0, per = progress;
-        
-        while(per < 100) {
-            per += speed;
-            day++;
+    let answer = [0];
+    let days = progresses.map((progress, index) => Math.ceil((100 - progress) / speeds[index]));
+    let maxDay = days[0];
+
+    for(let i = 0, j = 0; i< days.length; i++){
+        if(days[i] <= maxDay) {
+            answer[j] += 1;
+        } else {
+            maxDay = days[i];
+            answer[++j] = 1;
         }
-        return day;
     }
-    
-    const days = progresses.reduce((acc,cur,index) => {
-        const d =  whenFinish(cur, speeds[index]);
-        if(acc[acc.length - 1]?.[0] >= d) {
-            const [tmpD, tmpI] = acc.pop();
-            return [...acc, [tmpD, tmpI+1]];
-        }
-        
-        return [...acc, [d,1]];
-    }, []);
-    
-    return days.map((d) => d[1]);
+
+    return answer;
 }
