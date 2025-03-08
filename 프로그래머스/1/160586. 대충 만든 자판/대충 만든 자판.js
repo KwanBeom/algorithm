@@ -1,26 +1,28 @@
-function algo(keymap, target) {
-    let result = -1;
-    for(let i=0; i<keymap.length; i++) {
-        for(let j=0; j<keymap[i].length; j++) {
-            if(target == keymap[i][j]) {
-                if(result >= 0 && result <= j) continue;
-                result = j+1;
+function createKeymapMap(keymap) {
+    const keymapMap = new Map();
+    
+    keymap.forEach((keys, index) => {
+        keys.split("").forEach((char, idx) => {
+            if (!keymapMap.has(char) || keymapMap.get(char) > idx + 1) {
+                keymapMap.set(char, idx + 1);
             }
-        }
-    }
-    return result;
+        });
+    });
+
+    return keymapMap;
 }
 
 function solution(keymap, targets) {
-    return targets.map((target,idx) => {
-        let flag = true;
-        const sum = target.split("").reduce((acc, cur) => {
-            const cnt = algo(keymap, cur);
-            if(cnt == -1) {
-                flag = false;
-            }
-            return acc + cnt;
-        }, 0);
-        return flag ? sum : -1;
-    })
+    const keymapMap = createKeymapMap(keymap);
+    
+    return targets.map(target => {
+        let sum = 0;
+        
+        for (let char of target) {
+            if (!keymapMap.has(char)) return -1;  // 찾을 수 없는 문자면 바로 -1 리턴
+            sum += keymapMap.get(char);
+        }
+        
+        return sum;
+    });
 }
